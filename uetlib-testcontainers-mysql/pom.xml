@@ -19,7 +19,6 @@
     </properties>
 
     <dependencies>
-        <!-- TODO replace with uetlib-->
         <dependency>
             <groupId>ch.ubique</groupId>
             <artifactId>uetlib-testcontainers</artifactId>
