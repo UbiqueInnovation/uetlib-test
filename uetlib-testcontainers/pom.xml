@@ -10,10 +10,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>../uetlib-testcontainers-mariadb</module>
-        <module>../uetlib-testcontainers-mongodb</module>
-        <module>../uetlib-testcontainers-mysql</module>
-        <module>../uetlib-testcontainers-postgresql</module>
+        <module>uetlib-testcontainers-mariadb</module>
+        <module>uetlib-testcontainers-mongodb</module>
+        <module>uetlib-testcontainers-mysql</module>
+        <module>uetlib-testcontainers-postgresql</module>
     </modules>
 
     <properties>
@@ -46,6 +46,10 @@
                 <exclusion>
                     <groupId>org.yaml</groupId>
                     <artifactId>snakeyaml</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.xmlunit</groupId>
+                    <artifactId>xmlunit-core</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
