@@ -15,7 +15,7 @@ jobs:
                 module: [ uetlib-test, uetlib-testcontainers ]
             max-parallel: 1
         with:
-            parent_pom: uetlib-test/pom.xml
+            parent_pom: ${{ matrix.module }}/pom.xml
             ref_name: ${{ github.ref_name }}
         secrets:
             artifactory_user: ${{ secrets.UB_ARTIFACTORY_USER}}
@@ -31,7 +31,7 @@ jobs:
                 module: [ uetlib-test, uetlib-testcontainers ]
             max-parallel: 1
         with:
-            parent_pom: uetlib-test/pom.xml
+            parent_pom: ${{ matrix.module }}/pom.xml
             ref_name: ${{ github.ref_name }}
         secrets:
             artifactory_user: ${{ secrets.UB_ARTIFACTORY_USER}}
