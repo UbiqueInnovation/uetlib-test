@@ -8,6 +8,10 @@ jobs:
     build:
         name: Build and test Project
         uses: UbiqueInnovation/workflows-backend/.github/workflows/mvn_install.yml@main
+        strategy:
+            matrix:
+                module: [ uetlib-test, uetlib-testcontainers ]
+            max-parallel: 1
         with:
             ref_name: ${{ github.ref_name }}
             parent_pom: uetlib-test/pom.xml
@@ -21,6 +25,10 @@ jobs:
         name: Deploy Project to Artifactory
         needs: [ build ]
         uses: UbiqueInnovation/workflows-backend/.github/workflows/mvn_package_deploy.yml@main
+        strategy:
+            matrix:
+                module: [ uetlib-test, uetlib-testcontainers ]
+            max-parallel: 1
         with:
             ref_name: ${{ github.ref_name }}
             parent_pom: uetlib-test/pom.xml
