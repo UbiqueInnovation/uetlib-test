@@ -7,7 +7,7 @@
     <parent>
         <groupId>ch.ubique</groupId>
         <artifactId>uetlib-bom</artifactId>
-        <version>1.0.0-alpha.2</version>
+        <version>1.0.0-alpha.14</version>
     </parent>
 
     <artifactId>uetlib-testcontainers</artifactId>
@@ -21,8 +21,6 @@
     </modules>
 
     <properties>
-        <spring-boot-version>3.3.5</spring-boot-version>
-
         <!-- Sonar-->
         <sonar.projectKey>UbiqueInnovation_uetlib-test</sonar.projectKey>
         <sonar.organization>ubiqueinnovation</sonar.organization>
@@ -30,12 +28,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>ch.ubique</groupId>
-            <artifactId>uetlib-db</artifactId>
-            <version>1.0.0-alpha.1</version>
-        </dependency>
-
         <!-- Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -63,23 +55,4 @@
         </dependency>
 
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.testcontainers</groupId>
-                <artifactId>testcontainers-bom</artifactId>
-                <version>1.20.3</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <type>pom</type>
-                <version>${spring-boot-version}</version>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 </project>
