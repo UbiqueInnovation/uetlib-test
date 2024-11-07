@@ -19,9 +19,8 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- Sonar-->
-        <sonar.projectKey>UbiqueInnovation_uetlib-test</sonar.projectKey>
-        <sonar.organization>ubiqueinnovation</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.projectName>uetlib-test</sonar.projectName>
+        <sonar.coverage.module>uetlib-test</sonar.coverage.module>
     </properties>
 
     <dependencies>
