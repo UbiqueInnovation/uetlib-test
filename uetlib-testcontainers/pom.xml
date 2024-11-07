@@ -22,9 +22,8 @@
 
     <properties>
         <!-- Sonar-->
-        <sonar.projectKey>UbiqueInnovation_uetlib-test</sonar.projectKey>
-        <sonar.organization>ubiqueinnovation</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.projectName>uetlib-testcontainers</sonar.projectName>
+        <sonar.coverage.module>uetlib-testcontainers</sonar.coverage.module>
     </properties>
 
     <dependencies>
