@@ -70,8 +70,6 @@
     <distributionManagement>
         <repository>
             <id>ubique-artifactory</id>
-            <name>backend</name>
-            <url>https://artifactory.ubique.ch/artifactory/backend</url>
         </repository>
     </distributionManagement>
 </project>
