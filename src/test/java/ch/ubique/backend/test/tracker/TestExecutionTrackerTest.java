@@ -7,17 +7,22 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExecutableInvoker;
 import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.MediaType;
 import org.junit.jupiter.api.extension.TestInstances;
+import org.junit.jupiter.api.function.ThrowingConsumer;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
+import java.nio.file.Path;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 
 class TestExecutionTrackerTest {
+
     private TestExecutionTracker tracker;
 
     @BeforeEach
@@ -116,8 +121,22 @@ class TestExecutionTrackerTest {
             public void publishReportEntry(final Map<String, String> map) {}
 
             @Override
+            public void publishFile(
+                    final String name,
+                    final MediaType mediaType,
+                    final ThrowingConsumer<Path> action) {}
+
+            @Override
+            public void publishDirectory(final String name, final ThrowingConsumer<Path> action) {}
+
+            @Override
             public Optional<Class<?>> getTestClass() {
                 return Optional.empty();
+            }
+
+            @Override
+            public List<Class<?>> getEnclosingTestClasses() {
+                return List.of();
             }
 
             @Override
