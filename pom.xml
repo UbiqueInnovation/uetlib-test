@@ -7,7 +7,7 @@
     <parent>
         <groupId>ch.ubique</groupId>
         <artifactId>uetlib-parent</artifactId>
-        <version>1.3.2</version>
+        <version>2026.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>uetlib-test</artifactId>
@@ -18,13 +18,13 @@
     <properties>
         <java.version>25</java.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Sonar-->
-        <sonar.projectName>uetlib-test</sonar.projectName>
-        <sonar.coverage.module>uetlib-test</sonar.coverage.module>
+        <sonar.projectName>${project.artifactId}</sonar.projectName>
+        <sonar.coverage.module>${project.artifactId}</sonar.coverage.module>
     </properties>
 
     <dependencies>
