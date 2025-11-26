@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2.0.0
+
+### Improvements
+
+- Update uetlib-parent for Spring Boot 4 compatability
+- Java 25
+
 ## 1.2.0
 
 ### Improvements
