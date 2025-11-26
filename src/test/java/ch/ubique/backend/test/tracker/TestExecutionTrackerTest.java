@@ -3,11 +3,11 @@ package ch.ubique.backend.test.tracker;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MediaType;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExecutableInvoker;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.MediaType;
 import org.junit.jupiter.api.extension.TestInstances;
 import org.junit.jupiter.api.function.ThrowingConsumer;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -85,6 +85,7 @@ class TestExecutionTrackerTest {
 
     private ExtensionContext mockContext(final String displayName) {
         return new ExtensionContext() {
+
             @Override
             public String getDisplayName() {
                 return displayName;
@@ -113,7 +114,7 @@ class TestExecutionTrackerTest {
 
             @Override
             public <T> Optional<T> getConfigurationParameter(
-                    final String key, final Function<String, T> transformer) {
+                    final String key, final Function<? super String, ? extends T> transformer) {
                 return Optional.empty();
             }
 
@@ -166,6 +167,11 @@ class TestExecutionTrackerTest {
 
             @Override
             public Store getStore(final Namespace namespace) {
+                return null;
+            }
+
+            @Override
+            public Store getStore(final StoreScope scope, final Namespace namespace) {
                 return null;
             }
 
