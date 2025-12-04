@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -14,18 +14,6 @@
 
     <packaging>jar</packaging>
     <version>2.0.0-SNAPSHOT</version>
-
-    <properties>
-        <java.version>25</java.version>
-        <maven.compiler.release>${java.version}</maven.compiler.release>
-
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <!-- Sonar-->
-        <sonar.projectName>${project.artifactId}</sonar.projectName>
-        <sonar.coverage.module>${project.artifactId}</sonar.coverage.module>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -48,6 +36,12 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>ubique-artifactory</id>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -57,22 +51,7 @@
         </plugins>
     </build>
 
-
-    <repositories>
-        <repository>
-            <id>ubique-artifactory</id>
-            <name>backend</name>
-            <url>https://artifactory.ubique.ch/artifactory/backend</url>
-        </repository>
-    </repositories>
-
-    <distributionManagement>
-        <repository>
-            <id>ubique-artifactory</id>
-        </repository>
-    </distributionManagement>
-
     <scm>
-        <url>https://github.com/UbiqueInnovation/uetlib-bom</url>
+        <url>https://github.com/UbiqueInnovation/uetlib-test</url>
     </scm>
 </project>
