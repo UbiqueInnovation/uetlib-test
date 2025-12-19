@@ -7,7 +7,7 @@
     <parent>
         <groupId>ch.ubique</groupId>
         <artifactId>uetlib-parent</artifactId>
-        <version>2026.0.0-alpha.1</version>
+        <version>2026.0.0-alpha.3</version>
     </parent>
 
     <artifactId>uetlib-test</artifactId>
@@ -43,12 +43,6 @@
             <url>https://repo.osgeo.org/repository/release/</url>
         </repository>
     </repositories>
-
-    <distributionManagement>
-        <repository>
-            <id>ubique-artifactory</id>
-        </repository>
-    </distributionManagement>
 
     <scm>
         <url>https://github.com/UbiqueInnovation/uetlib-test</url>
