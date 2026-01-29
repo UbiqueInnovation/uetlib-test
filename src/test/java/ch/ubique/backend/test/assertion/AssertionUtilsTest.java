@@ -31,10 +31,10 @@ class AssertionUtilsTest {
                                             a.getClass();
                                         },
                                         "Cannot invoke \"Object.getClass()\" because \"a\" is"
-                                            + " null"));
+                                                + " null"));
         assertEquals(
                 "Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException>"
-                    + " but was: <java.lang.NullPointerException>",
+                        + " but was: <java.lang.NullPointerException>",
                 errorIncorrectException.getMessage());
 
         final var errorIncorrectMessage =
@@ -50,7 +50,7 @@ class AssertionUtilsTest {
                                         "incorrect message"));
         assertEquals(
                 "expected: <incorrect message> but was: <Cannot invoke \"Object.getClass()\""
-                    + " because \"a\" is null>",
+                        + " because \"a\" is null>",
                 errorIncorrectMessage.getMessage());
 
         final var errorNullPointerExceptionOnExpectedType =
@@ -66,7 +66,7 @@ class AssertionUtilsTest {
                                         "incorrect message"));
         assertEquals(
                 "Cannot invoke \"java.lang.Class.isInstance(Object)\" because \"expectedType\" is"
-                    + " null",
+                        + " null",
                 errorNullPointerExceptionOnExpectedType.getMessage());
     }
 
@@ -86,7 +86,7 @@ class AssertionUtilsTest {
                                     }
                                 },
                                 "npe thrown, caused by: Cannot invoke \"Object.getClass()\" because"
-                                    + " \"a\" is null",
+                                        + " \"a\" is null",
                                 NullPointerException.class));
 
         final var errorIncorrectException =
@@ -107,11 +107,11 @@ class AssertionUtilsTest {
                                             }
                                         },
                                         "npe thrown, caused by: Cannot invoke \"Object.getClass()\""
-                                            + " because \"a\" is null",
+                                                + " because \"a\" is null",
                                         NullPointerException.class));
         assertEquals(
                 "Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException>"
-                    + " but was: <java.lang.RuntimeException>",
+                        + " but was: <java.lang.RuntimeException>",
                 errorIncorrectException.getMessage());
 
         final var errorIncorrectMessage =
@@ -135,7 +135,7 @@ class AssertionUtilsTest {
                                         NullPointerException.class));
         assertEquals(
                 "expected: <incorrect message> but was: <npe thrown, caused by: Cannot invoke"
-                    + " \"Object.getClass()\" because \"a\" is null>",
+                        + " \"Object.getClass()\" because \"a\" is null>",
                 errorIncorrectMessage.getMessage());
 
         final var errorIncorrectCause =
@@ -156,12 +156,12 @@ class AssertionUtilsTest {
                                             }
                                         },
                                         "npe thrown, caused by: Cannot invoke \"Object.getClass()\""
-                                            + " because \"a\" is null",
+                                                + " because \"a\" is null",
                                         IllegalArgumentException.class));
         assertEquals(
                 "Unexpected exception cause, expected: <java.lang.IllegalArgumentException> but"
-                    + " was: <java.lang.NullPointerException> ==> expected: <true> but was:"
-                    + " <false>",
+                        + " was: <java.lang.NullPointerException> ==> expected: <true> but was:"
+                        + " <false>",
                 errorIncorrectCause.getMessage());
 
         final var errorNullPointerExceptionOnExpectedType =
@@ -182,11 +182,11 @@ class AssertionUtilsTest {
                                             }
                                         },
                                         "npe thrown, caused by: Cannot invoke \"Object.getClass()\""
-                                            + " because \"a\" is null",
+                                                + " because \"a\" is null",
                                         NullPointerException.class));
         assertEquals(
                 "Cannot invoke \"java.lang.Class.isInstance(Object)\" because \"expectedType\" is"
-                    + " null",
+                        + " null",
                 errorNullPointerExceptionOnExpectedType.getMessage());
 
         final var errorNullPointerExceptionOnExpectedCauseType =
@@ -207,11 +207,11 @@ class AssertionUtilsTest {
                                             }
                                         },
                                         "npe thrown, caused by: Cannot invoke \"Object.getClass()\""
-                                            + " because \"a\" is null",
+                                                + " because \"a\" is null",
                                         null));
         assertEquals(
                 "Cannot invoke \"java.lang.Class.isInstance(Object)\" because \"expectedCauseType\""
-                    + " is null",
+                        + " is null",
                 errorNullPointerExceptionOnExpectedCauseType.getMessage());
     }
 }
