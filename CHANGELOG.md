@@ -5,7 +5,6 @@
 ### Improvements
 
 - Update uetlib-parent for Spring Boot 4 compatibility
-- Java 25
 
 ## 1.2.0
 
