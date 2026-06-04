@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2.1.0
+
+### Improvements
+
+- Null-marked it all
+- Update `uetlib-parent` to the latest version
+
 ## 2.0.0
 
 ### Improvements
