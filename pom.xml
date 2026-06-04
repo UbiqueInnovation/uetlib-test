@@ -7,13 +7,18 @@
     <parent>
         <groupId>ch.ubique</groupId>
         <artifactId>uetlib-parent</artifactId>
-        <version>2026.05.0</version>
+        <version>2026.06.0</version>
     </parent>
 
     <artifactId>uetlib-test</artifactId>
 
     <packaging>jar</packaging>
     <version>3.0.0-SNAPSHOT</version>
+
+    <properties>
+        <!-- westemeyer version config -->
+        <westemeyer-version-package-name>ch.ubique.backend.test.version</westemeyer-version-package-name>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -37,6 +42,16 @@
     </dependencies>
 
     <repositories>
+        <repository>
+            <id>ubique-artifactory</id>
+            <name>backend</name>
+            <url>https://artifactory.ubique.ch/artifactory/backend</url>
+        </repository>
+        <repository>
+            <id>ubique-artifactory-virtual</id>
+            <name>ubique</name>
+            <url>https://artifactory.ubique.ch/artifactory/ubique</url>
+        </repository>
         <repository>
             <id>osgeo</id>
             <name>Open Source Geospatial Foundation Repository</name>
