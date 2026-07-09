@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.2.0
+
+### Improvements
+
+- Added `org.assertj:assertj-core`
+
 ## 2.1.0
 
 ### Improvements

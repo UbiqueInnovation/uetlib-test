@@ -1,7 +1,9 @@
 package ch.ubique.backend.test.tracker;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
 
+import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MediaType;
 import org.junit.jupiter.api.Test;
@@ -35,24 +37,24 @@ class TestExecutionTrackerTest {
     void testTrackingSingleExecution() {
         tracker.testSuccessful(mockContext("myTestMethod"));
 
-        assertTrue(
-                TestExecutionTracker.wasExecutedByMethodName("myTestMethod"),
-                "ExecutionTracker should recognize myTestMethod as executed");
-        assertFalse(
-                TestExecutionTracker.wasExecutedByMethodName("otherMethod"),
-                "ExecutionTracker should not recognize otherMethod as executed");
+        assertThat(TestExecutionTracker.wasExecutedByMethodName("myTestMethod"))
+                .as("ExecutionTracker should recognize myTestMethod as executed")
+                .isTrue();
+        assertThat(TestExecutionTracker.wasExecutedByMethodName("otherMethod"))
+                .as("ExecutionTracker should not recognize otherMethod as executed")
+                .isFalse();
     }
 
     @Test
     void testResetClearsState() {
         tracker.testSuccessful(mockContext("testA"));
-        assertTrue(TestExecutionTracker.wasExecutedByMethodName("testA"));
-        assertEquals(1, TestExecutionTracker.getExecutedTests().size());
+        assertThat(TestExecutionTracker.wasExecutedByMethodName("testA")).isTrue();
+        assertThat(TestExecutionTracker.getExecutedTests()).hasSize(1);
 
         TestExecutionTracker.reset();
 
-        assertFalse(TestExecutionTracker.wasExecutedByMethodName("testA"));
-        assertEquals(0, TestExecutionTracker.getExecutedTests().size());
+        assertThat(TestExecutionTracker.wasExecutedByMethodName("testA")).isFalse();
+        assertThat(TestExecutionTracker.getExecutedTests()).isEmpty();
     }
 
     @Test
@@ -61,26 +63,27 @@ class TestExecutionTrackerTest {
         tracker.testSuccessful(mockContext("secondTest"));
 
         final var all = TestExecutionTracker.getExecutedTests();
-        assertEquals(2, all.size());
-        assertTrue(all.stream().anyMatch(s -> s.contains("firstTest")));
-        assertTrue(all.stream().anyMatch(s -> s.contains("secondTest")));
+        assertThat(all)
+                .hasSize(2)
+                .anyMatch(s -> s.contains("firstTest"))
+                .anyMatch(s -> s.contains("secondTest"));
     }
 
     @Test
     void testWasExecutedByMethodNameMatching() {
         tracker.testSuccessful(mockContext("ShouldRunWithMongo.mongoTest()"));
 
-        assertTrue(
-                TestExecutionTracker.wasExecutedByMethodName("mongoTest"),
-                "Expected mongoTest to be detected as executed");
+        assertThat(TestExecutionTracker.wasExecutedByMethodName("mongoTest"))
+                .withFailMessage("Expected mongoTest to be detected as executed")
+                .isTrue();
 
-        assertTrue(
-                TestExecutionTracker.wasExecutedByMethodName("ShouldRunWithMongo"),
-                "Expected ShouldRunWithMongo class name to be matched");
+        assertThat(TestExecutionTracker.wasExecutedByMethodName("ShouldRunWithMongo"))
+                .withFailMessage("Expected ShouldRunWithMongo class name to be matched")
+                .isTrue();
 
-        assertFalse(
-                TestExecutionTracker.wasExecutedByMethodName("nonexistentMethod"),
-                "Expected non-existent method to not be matched");
+        assertThat(TestExecutionTracker.wasExecutedByMethodName("nonexistentMethod"))
+                .withFailMessage("Expected non-existent method to not be matched")
+                .isFalse();
     }
 
     private ExtensionContext mockContext(final String displayName) {
@@ -114,21 +117,28 @@ class TestExecutionTrackerTest {
 
             @Override
             public <T> Optional<T> getConfigurationParameter(
-                    final String key, final Function<? super String, ? extends T> transformer) {
+                    final String key,
+                    final Function<? super String, ? extends @Nullable T> transformer) {
                 return Optional.empty();
             }
 
             @Override
-            public void publishReportEntry(final Map<String, String> map) {}
+            public void publishReportEntry(final Map<String, String> map) {
+                /* empty */
+            }
 
             @Override
             public void publishFile(
                     final String name,
                     final MediaType mediaType,
-                    final ThrowingConsumer<Path> action) {}
+                    final ThrowingConsumer<Path> action) {
+                /* empty */
+            }
 
             @Override
-            public void publishDirectory(final String name, final ThrowingConsumer<Path> action) {}
+            public void publishDirectory(final String name, final ThrowingConsumer<Path> action) {
+                /* empty */
+            }
 
             @Override
             public Optional<Class<?>> getTestClass() {
@@ -167,22 +177,22 @@ class TestExecutionTrackerTest {
 
             @Override
             public Store getStore(final Namespace namespace) {
-                return null;
+                return mock(Store.class);
             }
 
             @Override
             public Store getStore(final StoreScope scope, final Namespace namespace) {
-                return null;
+                return mock(Store.class);
             }
 
             @Override
             public ExecutionMode getExecutionMode() {
-                return null;
+                return mock(ExecutionMode.class);
             }
 
             @Override
             public ExecutableInvoker getExecutableInvoker() {
-                return null;
+                return mock(ExecutableInvoker.class);
             }
 
             @Override
