@@ -18,6 +18,9 @@
     <properties>
         <!-- westemeyer version config -->
         <westemeyer-version-package-name>ch.ubique.backend.test.version</westemeyer-version-package-name>
+        <!-- Sonar -->
+        <sonar.projectName>uetlib-test</sonar.projectName>
+        <sonar.coverage.module>uetlib-test</sonar.coverage.module>
     </properties>
 
     <dependencies>
