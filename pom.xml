@@ -7,7 +7,7 @@
     <parent>
         <groupId>ch.ubique</groupId>
         <artifactId>uetlib-parent</artifactId>
-        <version>2026.8.0</version>
+        <version>2026.8.2</version>
         <relativePath/>
     </parent>
 
@@ -15,14 +15,6 @@
 
     <packaging>jar</packaging>
     <version>3.0.0-SNAPSHOT</version>
-
-    <properties>
-        <!-- westemeyer version config -->
-        <westemeyer-version-package-name>ch.ubique.backend.test.version</westemeyer-version-package-name>
-        <!-- Sonar -->
-        <sonar.projectName>uetlib-test</sonar.projectName>
-        <sonar.coverage.module>uetlib-test</sonar.coverage.module>
-    </properties>
 
     <dependencies>
         <dependency>
