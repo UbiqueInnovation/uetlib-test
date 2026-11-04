@@ -1,10 +1,11 @@
-package ch.ubique.uetlib.test.assertion;
+package ch.uetlib.test.assertion;
 
 import static java.util.Optional.ofNullable;
 
-import java.text.MessageFormat;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.function.Executable;
+
+import java.text.MessageFormat;
 
 public final class AssertionUtils {
 

@@ -1,4 +1,4 @@
-package ch.ubique.uetlib.test.assertion;
+package ch.uetlib.test.assertion;
 
 import static org.junit.jupiter.api.Assertions.*;
 
