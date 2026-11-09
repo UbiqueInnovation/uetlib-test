@@ -1,4 +1,4 @@
 @NullMarked
-package ch.ubique.backend.test.assertion;
+package ch.uetlib.test.assertion;
 
 import org.jspecify.annotations.NullMarked;

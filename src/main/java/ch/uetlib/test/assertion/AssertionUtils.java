@@ -1,4 +1,4 @@
-package ch.ubique.backend.test.assertion;
+package ch.uetlib.test.assertion;
 
 import static java.util.Optional.ofNullable;
 
