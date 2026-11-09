@@ -1,4 +1,4 @@
-package ch.ubique.backend.test.tracker;
+package ch.uetlib.test.tracker;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;

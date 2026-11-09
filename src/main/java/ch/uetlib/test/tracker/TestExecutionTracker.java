@@ -1,4 +1,4 @@
-package ch.ubique.backend.test.tracker;
+package ch.uetlib.test.tracker;
 
 import org.jspecify.annotations.NonNull;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
