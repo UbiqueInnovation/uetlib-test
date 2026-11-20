@@ -10,15 +10,14 @@ class AssertionUtilsTest {
 
     @Test
     void assertThrowsWithMessage() {
-        assertDoesNotThrow(
-                () ->
-                        AssertionUtils.assertThrowsWithMessage(
-                                NullPointerException.class,
-                                () -> {
-                                    final String a = null;
-                                    a.getClass();
-                                },
-                                "Cannot invoke \"Object.getClass()\" because \"a\" is null"));
+        assertDoesNotThrow(() ->
+                AssertionUtils.assertThrowsWithMessage(
+                        NullPointerException.class,
+                        () -> {
+                            final String a = null;
+                            a.getClass();
+                        },
+                        "Cannot invoke \"Object.getClass()\" because \"a\" is null"));
 
         final var errorIncorrectException =
                 assertThrows(
@@ -72,22 +71,21 @@ class AssertionUtilsTest {
 
     @Test
     void assertThrowsWithMessageAndCause() {
-        assertDoesNotThrow(
-                () ->
-                        AssertionUtils.assertThrowsWithMessageAndCause(
-                                RuntimeException.class,
-                                () -> {
-                                    final String a = null;
-                                    try {
-                                        a.getClass();
-                                    } catch (final NullPointerException npe) {
-                                        throw new RuntimeException(
-                                                "npe thrown, caused by: " + npe.getMessage(), npe);
-                                    }
-                                },
-                                "npe thrown, caused by: Cannot invoke \"Object.getClass()\" because"
-                                        + " \"a\" is null",
-                                NullPointerException.class));
+        assertDoesNotThrow(() ->
+                AssertionUtils.assertThrowsWithMessageAndCause(
+                        RuntimeException.class,
+                        () -> {
+                            final String a = null;
+                            try {
+                                a.getClass();
+                            } catch (final NullPointerException npe) {
+                                throw new RuntimeException(
+                                        "npe thrown, caused by: " + npe.getMessage(), npe);
+                            }
+                        },
+                        "npe thrown, caused by: Cannot invoke \"Object.getClass()\" because"
+                                + " \"a\" is null",
+                        NullPointerException.class));
 
         final var errorIncorrectException =
                 assertThrows(
